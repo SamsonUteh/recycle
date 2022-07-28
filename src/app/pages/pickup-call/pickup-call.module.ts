@@ -4,18 +4,17 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { LoaderPageRoutingModule } from './loader-routing.module';
+import { PickupCallPageRoutingModule } from './pickup-call-routing.module';
 
-import { LoaderPage } from './loader.page';
-
+import { PickupCallPage } from './pickup-call.page';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    LoaderPageRoutingModule
+    PickupCallPageRoutingModule
   ],
-  declarations: [LoaderPage]
+  declarations: [PickupCallPage]
 })
-export class LoaderPageModule {}
+export class PickupCallPageModule {}
