@@ -31,6 +31,6 @@ describe('RegisterPage', () => {
     spyOn(router, 'navigate')
     component.register();
     expect(router.navigate).toHaveBeenCalledWith(['home']);
-  })
+  });
 
 });
