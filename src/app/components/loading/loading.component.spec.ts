@@ -1,0 +1,41 @@
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
+import { IonicModule } from '@ionic/angular';
+import { Store, StoreModule } from '@ngrx/store';
+import { AppStore } from 'src/app/store/AppState';
+import { hide, show } from 'src/app/store/loading/loading.actions';
+import { loadingReducer } from 'src/app/store/loading/loading.reducers';
+
+import { LoadingComponent } from './loading.component';
+
+describe('LoadingComponent', () => {
+  let component: LoadingComponent;
+  let fixture: ComponentFixture<LoadingComponent>;
+  let store: Store<AppStore>;
+
+  beforeEach(waitForAsync(() => {
+    TestBed.configureTestingModule({
+      declarations: [ LoadingComponent ],
+      imports: [IonicModule.forRoot(), StoreModule.forRoot([]), StoreModule.forFeature("loading", loadingReducer)]
+    }).compileComponents();
+
+    fixture = TestBed.createComponent(LoadingComponent);
+    store = TestBed.get(Store);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  }));
+
+  it('should hide the loading component when not loading', () => {
+    const compiled = fixture.nativeElement;
+    store.dispatch(hide());
+    fixture.detectChanges();
+    expect(compiled.querySelected(".backdrop")).toBeNull();
+  });
+
+  it('should show the loading component when loading', () => {
+    const compiled = fixture.nativeElement;
+    store.dispatch(show());
+    fixture.detectChanges();
+    expect(compiled.querySelected(".backdrop")).not.toBeNull();
+  });
+
+});
