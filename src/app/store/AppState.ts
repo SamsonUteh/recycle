@@ -1,5 +1,7 @@
 import { LoadingState } from "./loading/LoadingState";
+import { LoginState } from "./login/LoginState";
 
 export interface AppStore {
-  loading: LoadingState
+  loading: LoadingState;
+  login: LoginState
 }
