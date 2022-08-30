@@ -1,7 +1,7 @@
-import { AppStore } from "./AppState";
+import { AppState } from "./AppState";
 
 
-export const AppInitialState: AppStore  = {
+export const AppInitialState: AppState  = {
   loading: {
     show: false
   },
